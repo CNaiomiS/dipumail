@@ -2,11 +2,10 @@
 
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
-SMTP_USERNAME = 'c.naiomi.soto@gmail.com'
-SMTP_PASSWORD = 'Naiomi393'
-SMTP_FROM = 'c.naiomi.soto@gmail.com'
-#SMTP_TO = 'meisameew@gmail.com'
-#TEXT_FILENAME = '/Users/csotoba/documents/clau_cosas_random/test.txt'
+SMTP_USERNAME = '###@gmail.com' ## tu correo
+SMTP_PASSWORD = '#####' ## tu pass 
+SMTP_FROM = '####@gmail.com' ## tu correo
+
 
 # Now construct the message
 import smtplib, email
@@ -26,7 +25,7 @@ mailer.ehlo()
 mailer.login(SMTP_USERNAME, SMTP_PASSWORD)
 
 fp = open('diputados.txt', encoding="ISO-8859-1")	
-fd = open('test.txt')
+fd = open('test.txt') ## nombre del file donde está el texto del correo
 text =  fd.read()
 for line in fp.readlines():
 	info = line.split(';');
@@ -51,6 +50,7 @@ for line in fp.readlines():
 
 	msg.attach(body)
 
+	## acá va el cosito con el titulo del correito
 	msg['Subject'] = 'Votación en sala sobre paridad de género, escaños reservados para pueblos originarios y listas de independientes para Convención Constituyente.'
 	msg.add_header('From', SMTP_FROM)
 	msg.add_header('To', SMTP_TO)
